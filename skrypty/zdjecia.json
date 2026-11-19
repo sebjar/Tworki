@@ -1,0 +1,658 @@
+{
+"P015": {
+"1": "miniatura filmu",
+"2": "klatka z filmu (miniatura YouTube)"
+},
+"P002": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P148": {
+"1": "okładka rolki",
+"2": "klatka z filmu (40% długości)"
+},
+"P001": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P009": {
+"1": "główne zdjęcie z bloga",
+"2": "zdjęcie z bloga (gotowe danie)"
+},
+"P003": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P005": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P004": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P008": {
+"1": "okładka rolki",
+"2": "klatka z filmu (84% długości)"
+},
+"P006": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P011": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P007": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P012": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P014": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P010": {
+"1": "klatka z filmu (wybrana ręcznie)",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P013": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P019": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P017": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P021": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P020": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P016": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P018": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P024": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P025": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P022": {
+"1": "okładka filmu",
+"2": "klatka z filmu (40% długości)"
+},
+"P023": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P027": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P026": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P028": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P031": {
+"1": "główne zdjęcie z bloga",
+"2": "zdjęcie z bloga (gotowe danie)"
+},
+"P029": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P033": {
+"1": "okładka filmu",
+"2": "klatka z filmu (84% długości)"
+},
+"P035": {
+"1": "okładka rolki",
+"2": "klatka z filmu (84% długości)"
+},
+"P032": {
+"1": "okładka filmu",
+"2": "klatka z filmu (84% długości)"
+},
+"P030": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P034": {
+"1": "okładka filmu",
+"2": "klatka z filmu (90% długości)"
+},
+"P038": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P039": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P036": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P037": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P040": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P042": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P044": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P043": {
+"1": "okładka filmu",
+"2": "klatka z filmu (76% długości)"
+},
+"P045": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P041": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P048": {
+"1": "okładka filmu",
+"2": "klatka z filmu (76% długości)"
+},
+"P050": {
+"1": "okładka filmu",
+"2": "klatka z filmu (90% długości)"
+},
+"P046": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P049": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P047": {
+"1": "okładka rolki",
+"2": "klatka z filmu (76% długości)"
+},
+"P051": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P054": {
+"1": "okładka rolki",
+"2": "klatka z filmu (90% długości)"
+},
+"P053": {
+"1": "miniatura filmu",
+"2": "klatka z filmu (miniatura YouTube)"
+},
+"P052": {
+"1": "okładka rolki",
+"2": "klatka z filmu (76% długości)"
+},
+"P055": {
+"1": "okładka rolki",
+"2": "klatka z filmu (68% długości)"
+},
+"P057": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P056": {
+"1": "okładka filmu",
+"2": "klatka z filmu (50% długości)"
+},
+"P058": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P062": {
+"1": "okładka filmu",
+"2": "klatka z filmu (95% długości)"
+},
+"P060": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P061": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P065": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P064": {
+"1": "okładka filmu",
+"2": "klatka z filmu (90% długości)"
+},
+"P059": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P066": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P063": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P067": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P069": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P071": {
+"1": "okładka filmu",
+"2": "klatka z filmu (95% długości)"
+},
+"P068": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P070": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P073": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P074": {
+"1": "okładka filmu",
+"2": "klatka z filmu (95% długości)"
+},
+"P075": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P072": {
+"1": "okładka filmu",
+"2": "klatka z filmu (90% długości)"
+},
+"P076": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P081": {
+"1": "okładka filmu",
+"2": "klatka z filmu (95% długości)"
+},
+"P079": {
+"1": "okładka filmu",
+"2": "klatka z filmu (60% długości)"
+},
+"P082": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P078": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P077": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P085": {
+"1": "okładka filmu"
+},
+"P083": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P084": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P088": {
+"1": "okładka filmu",
+"2": "klatka z filmu (60% długości)"
+},
+"P086": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P087": {
+"1": "klatka z filmu (wybrana ręcznie)",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P091": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P089": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P092": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P095": {
+"1": "okładka rolki",
+"2": "klatka z filmu (68% długości)"
+},
+"P094": {
+"1": "okładka filmu",
+"2": "klatka z filmu (90% długości)"
+},
+"P093": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P096": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P098": {
+"1": "główne zdjęcie z bloga",
+"2": "zdjęcie z bloga (gotowe danie)"
+},
+"P099": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P097": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P100": {},
+"P090": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P102": {
+"1": "okładka rolki",
+"2": "klatka z filmu (84% długości)"
+},
+"P103": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P106": {
+"1": "okładka filmu",
+"2": "klatka z filmu (95% długości)"
+},
+"P107": {
+"1": "główne zdjęcie z bloga",
+"2": "zdjęcie z bloga (gotowe danie)"
+},
+"P101": {
+"1": "zdjęcie z posta",
+"2": "zdjęcie z posta"
+},
+"P104": {
+"1": "klatka z filmu (wybrana ręcznie)",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P105": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P111": {
+"1": "główne zdjęcie z bloga",
+"2": "zdjęcie z bloga (gotowe danie)"
+},
+"P110": {
+"1": "klatka z filmu (wybrana ręcznie)",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P109": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P108": {
+"1": "klatka z filmu (wybrana ręcznie)",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P113": {
+"1": "okładka filmu",
+"2": "klatka z filmu (60% długości)"
+},
+"P112": {
+"1": "klatka z filmu (wybrana ręcznie)",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P118": {
+"1": "okładka filmu",
+"2": "klatka z filmu (90% długości)"
+},
+"P115": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P114": {
+"1": "klatka z filmu (wybrana ręcznie)",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P117": {
+"1": "okładka filmu",
+"2": "klatka z filmu (90% długości)"
+},
+"P121": {
+"1": "klatka z filmu (wybrana ręcznie)",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P120": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P123": {
+"1": "okładka rolki",
+"2": "klatka z filmu (60% długości)"
+},
+"P119": {
+"1": "klatka z filmu (wybrana ręcznie)",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P125": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P124": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P126": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P122": {
+"1": "klatka z filmu (wybrana ręcznie)",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P130": {
+"1": "okładka filmu",
+"2": "klatka z filmu (40% długości)"
+},
+"P129": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P127": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P128": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P131": {
+"1": "okładka filmu",
+"2": "klatka z filmu (40% długości)"
+},
+"P134": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P132": {
+"1": "okładka filmu",
+"2": "klatka z filmu (50% długości)"
+},
+"P137": {
+"1": "zdjęcie z posta",
+"2": "zdjęcie z posta"
+},
+"P136": {
+"1": "okładka filmu",
+"2": "klatka z filmu (84% długości)"
+},
+"P135": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P139": {
+"1": "zdjęcie dania z posta",
+"2": "karta z produktami z posta"
+},
+"P138": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P141": {
+"1": "okładka filmu",
+"2": "klatka z filmu (76% długości)"
+},
+"P142": {
+"1": "zdjęcie dania z posta",
+"2": "karta z produktami z posta"
+},
+"P143": {
+"1": "zdjęcie dania z posta",
+"2": "karta z produktami z posta"
+},
+"P144": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P145": {
+"1": "okładka filmu",
+"2": "klatka z filmu (40% długości)"
+},
+"P140": {
+"1": "klatka z filmu (wybrana ręcznie)",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P147": {
+"1": "okładka filmu",
+"2": "klatka z filmu (84% długości)"
+},
+"P150": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P149": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P146": {
+"1": "zdjęcie z posta",
+"2": "zdjęcie z posta"
+},
+"P151": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P155": {
+"1": "okładka rolki",
+"2": "klatka z filmu (68% długości)"
+},
+"P153": {
+"1": "okładka rolki",
+"2": "klatka z filmu (84% długości)"
+},
+"P152": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P156": {
+"1": "okładka rolki",
+"2": "klatka z filmu (84% długości)"
+},
+"P154": {
+"1": "okładka rolki",
+"2": "klatka z filmu (90% długości)"
+},
+"P157": {
+"1": "okładka rolki",
+"2": "klatka z filmu (90% długości)"
+},
+"P159": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P160": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P161": {
+"1": "okładka rolki",
+"2": "klatka z filmu (95% długości)"
+},
+"P162": {
+"1": "główne zdjęcie z bloga",
+"2": "zdjęcie z bloga (gotowe danie)"
+},
+"P164": {
+"1": "zdjęcie z bloga",
+"2": "zdjęcie z bloga"
+},
+"P163": {
+"1": "główne zdjęcie z bloga",
+"2": "zdjęcie z bloga (gotowe danie)"
+},
+"P158": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+},
+"P165": {
+"1": "główne zdjęcie z bloga",
+"2": "zdjęcie z bloga (gotowe danie)"
+},
+"P166": {
+"1": "zdjęcie z bloga",
+"2": "zdjęcie z bloga"
+},
+"P167": {
+"1": "główne zdjęcie z bloga",
+"2": "zdjęcie z bloga (gotowe danie)"
+},
+"P080": {
+"1": "okładka filmu",
+"2": "klatka z filmu (wybrana ręcznie)"
+}
+}

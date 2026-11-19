@@ -1,0 +1,157 @@
+# -*- coding: utf-8 -*-
+"""Recznie opracowane przepisy 9-17."""
+C = {}
+
+C[9] = dict(
+    name="Meal prep z Lidla na 3 dni (4 przepisy)", cat="Obiad", serv=12, ings=[],
+    note="Odcinek zbiorczy — 4 osobne przepisy bez podanych gramatur. Autor odsyła po ilości do aplikacji Luncher.",
+    steps=["Omlet meksykański w waflu z wrapa: do masy jajecznej dodaj warzywa i przyprawę meksykańską, wylej na wrapy uformowane w kwadratowe foremki i zapiecz.",
+           "Twarogowo-truskawkowa owsianka całonocna: wymieszaj płatki z twarogiem i truskawkami, przełóż do słoików 500 ml i zostaw na noc w lodówce.",
+           "Zdrowa blacha z kurczakiem: batat i brokuł na blachę razem z kurczakiem, piecz i rozdziel na 3 boksy.",
+           "California mango bowl: zamarynuj kurczaka w azjatyckich przyprawach, podawaj na ryżu z ogórkiem, awokado i mango."])
+
+C[10] = dict(
+    name="Rigatoni z pomidorkami, czosnkiem i wódką", cat="Obiad", serv=4,
+    ings=[(2, "łyżka", "masło"), (2, "łyżka", "oliwa z oliwek"), (1, "szt.", "szalotka"),
+          (8, "ząbek", "czosnek"), (2, "szklanka", "pomidorki koktajlowe"),
+          (2, "łyżeczka", "sól"), (2, "łyżka", "koncentrat pomidorowy"),
+          (0.5, "szklanka", "wódka"), (1, "szklanka", "śmietana kremówka"),
+          (0.67, "szklanka", "parmezan"), (225, "g", "makaron rigatoni"),
+          (1, "łyżeczka", "pieprz"), (1, "łyżeczka", "zioła włoskie"),
+          (1, "łyżeczka", "oregano"), (1, "łyżeczka", "płatki chilli"),
+          (1, "garść", "bazylia")],
+    steps=["Ugotuj makaron al dente w osolonej wodzie. Przed odcedzeniem zachowaj szklankę wody z gotowania.",
+           "Na dużej patelni rozgrzej masło z oliwą. Wrzuć posiekaną szalotkę i smaż 3 min, aż zmięknie.",
+           "Dodaj czosnek i smaż minutę. Wsyp wszystkie przyprawy i praż jeszcze minutę.",
+           "Dodaj przekrojone pomidorki i duś 8-10 min, rozgniatając je łyżką, aż zrobią się konfiturowe. Dosól.",
+           "Opcjonalnie zblenduj połowę masy pomidorowej na gładko. Dodaj koncentrat i wymieszaj.",
+           "Wlej wódkę i odparuj 2-3 min na średnio-małym ogniu. Zmniejsz ogień, wlej śmietanę i gotuj kilka minut.",
+           "Wmieszaj parmezan, bazylię i makaron. Jeśli sos jest zbyt gęsty, rozrzedź wodą z gotowania.",
+           "Dopraw do smaku i podawaj z bazylią i dodatkowym parmezanem."])
+
+C[11] = dict(
+    name="Cajun Chicken Pasta", cat="Obiad", serv=4,
+    ings=[(2, "szt.", "pierś z kurczaka"), (3, "łyżka", "przyprawa cajun"),
+          (1, "szt.", "cebula"), (1, "szt.", "papryka"), (8, "ząbek", "czosnek"),
+          (1, "szklanka", "śmietana kremówka"), (5, "łyżka", "masło"),
+          (2, "łyżka", "olej roślinny"), (1, "szklanka", "szpinak"),
+          (1, "łyżeczka", "czosnek granulowany"), (1, "łyżeczka", "papryka słodka"),
+          (1, "łyżeczka", "pieprz"), (1, "łyżeczka", "pieprz cayenne"),
+          (1, "łyżeczka", "zioła włoskie"), (0.75, "szklanka", "parmezan"),
+          (225, "g", "makaron rigatoni"), (1, "garść", "bazylia")],
+    steps=["Osusz piersi i rozbij je na równą grubość. Natrzyj oliwą i obficie obtocz w przyprawie cajun.",
+           "Ugotuj makaron al dente (minutę krócej niż na opakowaniu). Zachowaj szklankę wody z gotowania.",
+           "Na dużej patelni rozgrzej olej z łyżką masła. Smaż kurczaka po 4 min z każdej strony na złoto.",
+           "Zmniejsz ogień, dodaj 2 łyżki masła i polewaj mięso do końca smażenia. Odłóż.",
+           "Na tej samej patelni rozpuść 2 łyżki masła, wrzuć cebulę i smaż ok. 5 min do zeszklenia.",
+           "Dodaj paprykę i pozostałe przyprawy, smaż 6-7 min. Dorzuć czosnek i smaż jeszcze 2 min.",
+           "Zmniejsz ogień, wlej śmietanę i delikatnie zagotuj. Dodaj szpinak i parmezan, mieszaj minutę.",
+           "Dodaj makaron i 1/4 szklanki wody z gotowania, mieszaj 1-2 min. Podawaj z pokrojonym kurczakiem i bazylią."])
+
+C[12] = dict(
+    name="Placek ziemniaczany hash brown", cat="Śniadanie", serv=4,
+    note="Autor smaży na „hojnej” warstwie oleju bez podania ilości — liczę 70 ml, mniej więcej tyle wsiąka w placek.",
+    ings=[(800, "g", "ziemniaki"), (1, "łyżeczka", "sól"), (70, "ml", "olej roślinny")],
+    steps=["Obierz ziemniaki i zetrzyj na dużych oczkach tarki.",
+           "Wymieszaj z solą i odstaw na 5-10 min — sól wyciągnie wodę.",
+           "Przełóż na czystą ściereczkę i wyciśnij jak najwięcej wody. Im suchsze ziemniaki, tym lepsza skorupka.",
+           "Na patelnię 26 cm wlej sporo oleju i rozgrzej na średnim ogniu. Wyłóż ziemniaki i mocno dociśnij łopatką w równą warstwę, podwijając brzegi.",
+           "Smaż 8-10 min, aż spód będzie głęboko złoty. Poruszaj patelnią, żeby smażyło się równo.",
+           "Przykryj patelnię talerzem większym niż patelnia i jednym pewnym ruchem odwróć, żeby placek spadł na talerz.",
+           "Dolej oleju i zsuń placek z powrotem na patelnię drugą stroną. Dosmaż na złoto i dosól. Podawaj z ketchupem."])
+
+C[13] = dict(
+    name="Burrito z kurczakiem tikka masala", cat="Obiad", serv=11,
+    note="Jogurt grecki 800 g to 200 g do sosu masala + 600 g do ziołowego sosu do maczania — tak podaje autor. Cytryny: 2 do marynaty i 1 do sosu.",
+    ings=[(1360, "g", "pierś z kurczaka"), (240, "g", "jogurt naturalny"),
+          (4, "łyżka", "czosnek"), (4, "łyżka", "imbir"), (3, "szt.", "cytryna"),
+          (2, "łyżka", "sól"), (3, "łyżka", "papryka wędzona"), (2, "łyżka", "kumin"),
+          (1, "łyżka", "garam masala"), (1, "łyżka", "kolendra mielona"),
+          (1, "łyżeczka", "kurkuma"), (1, "łyżeczka", "pieprz cayenne"),
+          (45, "g", "masło"), (2, "szt.", "cebula"), (4, "łyżka", "koncentrat pomidorowy"),
+          (410, "g", "pomidory z puszki"), (150, "ml", "woda"),
+          (800, "g", "jogurt grecki"), (200, "g", "ryż basmati"),
+          (350, "g", "bulion"), (11, "szt.", "tortilla"), (15, "g", "miód"),
+          (80, "ml", "mleko"), (2, "pęczek", "kolendra")],
+    steps=["Wymieszaj przyprawy na mieszankę: papryka wędzona, kumin, garam masala, kolendra, kurkuma, cayenne. Połowa pójdzie do marynaty, połowa do sosu.",
+           "Marynata: wymieszaj pokrojoną pierś z jogurtem, czosnkiem, pastą imbirową, sokiem z 2 cytryn, solą i połową mieszanki przypraw.",
+           "Sos: na maśle smaż posiekaną cebulę na mocnym ogniu do zeszklenia, dodaj czosnek i imbir, smaż 3-4 min.",
+           "Dodaj koncentrat pomidorowy i drugą połowę przypraw, duś minutę.",
+           "Wlej pomidory z puszki i wodę, dorzuć posiekaną kolendrę. Gotuj 10-15 min i zblenduj na gładko.",
+           "Wmieszaj 200 g jogurtu greckiego, 15 g masła i kolendrę na małym ogniu. Dopraw solą.",
+           "Grilluj kurczaka ok. 10 min, aż się przypiecze — ma zostać lekko surowy w środku. Pokrój, dodaj do sosu i duś pod przykryciem 15-20 min.",
+           "Ugotuj ryż basmati w bulionie. Wymieszaj z mięsem i schłodź ok. 20 min w lodówce — łatwiej się zawija.",
+           "Sos jogurtowy do maczania: jogurt grecki, sok z cytryny, mleko, miód i szczypiorek z kolendrą.",
+           "Zawiń farsz w tortille i zamroź. Odgrzewanie: 2 min mikrofala, potem 6-8 min airfryer w 190°C."])
+
+C[14] = dict(
+    name="Fajitas z kurczakiem z blachy z sosem chipotle", cat="Obiad", serv=6,
+    note="Przyprawy policzone razem dla kurczaka i warzyw (autor podaje je osobno). Chipotle to wędzone papryczki w sosie adobo ze słoika/puszki — nie świeże chili.",
+    ings=[(800, "g", "udka z kurczaka"), (3, "łyżka", "majonez"),
+          (5, "łyżka", "olej roślinny"), (3, "łyżka", "miód"), (2, "szt.", "limonka"),
+          (7, "ząbek", "czosnek"), (3, "łyżeczka", "papryka słodka"),
+          (4, "łyżeczka", "chili"), (4, "łyżeczka", "kumin"), (1, "łyżeczka", "pieprz cayenne"),
+          (3, "łyżeczka", "oregano"), (3, "łyżeczka", "cebula granulowana"),
+          (3, "łyżeczka", "czosnek granulowany"), (4, "łyżeczka", "sól"),
+          (3, "łyżeczka", "pieprz"), (0.5, "szt.", "czerwona cebula"),
+          (2, "szt.", "papryka"), (1, "główka", "czosnek"),
+          (0.5, "szklanka", "śmietana kwaśna"), (0.25, "szklanka", "majonez"),
+          (2, "szt.", "papryczki chipotle w adobo"),
+          (0.5, "pęczek", "kolendra")],
+    steps=["Zamarynuj pokrojone udka z majonezem, olejem, miodem, sokiem z limonki, czosnkiem i wszystkimi przyprawami. Im dłużej, tym lepiej — najlepiej przez noc.",
+           "Rozgrzej piekarnik do 220°C. Główkę czosnku ścinnij od góry, polej olejem, posól i zawiń w folię. Piecz 45-60 min, aż zmięknie.",
+           "Pokrojone warzywa wyłóż na dużą blachę, skrop olejem i przypraw. Dołóż zamarynowanego kurczaka i wymieszaj.",
+           "Piecz 20-25 min, aż kurczak będzie gotowy i lekko przypieczony, a warzywa miękkie.",
+           "Wyciśnij upieczony czosnek do blendera. Dodaj śmietanę, majonez, papryczki chipotle, miód i sok z limonki. Zmiksuj na gładko.",
+           "Polej mięso sosem z blachy, posyp kolendrą i podawaj z sosem chipotle — najlepiej zawinięte w tortillę podsmażoną na maśle."])
+
+C[15] = dict(
+    name="Fish and chips", cat="Obiad", serv=4,
+    ings=[(700, "g", "ryba biała"), (1, "szklanka", "mąka"),
+          (0.25, "szklanka", "skrobia kukurydziana"), (1, "łyżeczka", "proszek do pieczenia"),
+          (1, "łyżeczka", "sól"), (0.5, "łyżeczka", "papryka słodka"),
+          (1, "szklanka", "piwo"), (1, "l", "olej roślinny"), (1000, "g", "ziemniaki"),
+          (4, "łyżka", "majonez"), (2, "łyżeczka", "kapary"),
+          (2, "szt.", "ogórki konserwowe"), (1, "łyżeczka", "musztarda"),
+          (1, "łyżka", "sok z cytryny"), (1, "łyżka", "natka pietruszki")],
+    steps=["Obierz ziemniaki i pokrój w grube frytki. Podgotuj 5-7 min w osolonym wrzątku, odcedź i dokładnie osusz na kratce.",
+           "Rozgrzej olej do 160°C. Smaż frytki partiami 4-5 min — mają być miękkie, ale jeszcze blade. Odsącz na papierze.",
+           "Sos tatarski: wymieszaj majonez, posiekane kapary, ogórki, musztardę, sok z cytryny i pietruszkę. Dopraw i wstaw do lodówki.",
+           "Ciasto: wymieszaj mąkę, skrobię, proszek do pieczenia, sól i paprykę. Stopniowo wlewaj zimne piwo, mieszając na gładko.",
+           "Osusz filety, oprósz mąką z solą, a potem zanurz w cieście, żeby pokryło je całe.",
+           "Rozgrzej olej do 180°C i smaż rybę 4-6 min na złoto. Odsącz na papierze.",
+           "Podnieś temperaturę oleju do 190°C i podsmaż frytki drugi raz przez 2-3 min na złoto i chrupko. Posól.",
+           "Podawaj rybę z frytkami, sosem tatarskim i ćwiartką cytryny."])
+
+C[16] = dict(
+    name="Fish and chips z glazurą miodowo-sriracha (airfryer)", cat="Obiad", serv=3,
+    ings=[(680, "g", "ryba biała"), (1, "łyżeczka", "papryka słodka"),
+          (1, "łyżeczka", "czosnek granulowany"), (2, "łyżeczka", "sól"),
+          (0.5, "szklanka", "mąka"), (1, "łyżka", "proszek do pieczenia"),
+          (1, "szt.", "jajko"), (0.75, "szklanka", "panierka panko"),
+          (0.75, "szklanka", "płatki kukurydziane"), (2, "łyżka", "miód"),
+          (2, "łyżka", "sriracha"), (2, "ząbek", "czosnek"), (400, "g", "ziemniaki"),
+          (1, "łyżeczka", "oliwa z oliwek"), (0.5, "łyżeczka", "czosnek granulowany"),
+          (1, "łyżka", "skrobia kukurydziana")],
+    steps=["Obierz i pokrój ziemniaki w słupki, wrzuć na chwilę do lodowatej wody, a potem dokładnie osusz.",
+           "Wymieszaj frytki z oliwą, solą, czosnkiem granulowanym i skrobią, aż wszystkie będą oblepione. Airfryer 190°C przez 20 min.",
+           "Osusz dorsza i lekko posól.",
+           "Przygotuj trzy miski: mąka z proszkiem do pieczenia i przyprawami, roztrzepane jajko, oraz panko wymieszane z pokruszonymi płatkami kukurydzianymi.",
+           "Obtaczaj każdy kawałek ryby kolejno w mące, jajku i panierce, strzepując nadmiar na każdym etapie.",
+           "Airfryer 200°C przez 12-14 min, w połowie przewróć.",
+           "Wymieszaj miód, sriracha i przeciśnięty czosnek. Posmaruj glazurą gotową rybę i podawaj z frytkami."])
+
+C[17] = dict(
+    name="Ziemniaki zapiekane z udkiem kurczaka i sosem sriracha", cat="Obiad", serv=4,
+    ings=[(800, "g", "ziemniaki"), (800, "g", "udka z kurczaka"),
+          (1, "szt.", "czerwona cebula"), (1, "szt.", "papryka czerwona"),
+          (1, "szt.", "papryka"), (20, "ml", "oliwa z oliwek"),
+          (2, "łyżeczka", "papryka wędzona"), (2, "łyżeczka", "tymianek"),
+          (3, "łyżeczka", "rozmaryn"), (1, "łyżeczka", "sól"), (1, "łyżeczka", "pieprz"),
+          (40, "g", "majonez"), (20, "g", "sriracha"), (0.5, "łyżeczka", "czosnek granulowany")],
+    steps=["Pokrój ziemniaki, cebulę i obie papryki. Mięso z uda pokrój na kawałki.",
+           "Wymieszaj wszystko na blasze z oliwą, papryką wędzoną, tymiankiem, suszonym rozmarynem, solą i pieprzem.",
+           "Dorzuć gałązkę świeżego rozmarynu i skrop jeszcze raz oliwą.",
+           "Piecz w 200°C ok. 40-45 min, aż ziemniaki będą miękkie, a mięso przypieczone.",
+           "W czasie pieczenia zrób sos: wymieszaj majonez, sriracha i suszony czosnek.",
+           "Rozłóż do 4 pudełek i polej sosem tuż przed jedzeniem."])

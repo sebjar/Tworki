@@ -1,0 +1,58 @@
+{
+ "Units": [
+  "kg",
+  "g",
+  "ml",
+  "item",
+  "clove",
+  "pinch",
+  "spoon",
+  "teaspoon"
+ ],
+ "Sections": [
+  "Produce",
+  "Bread",
+  "Deli",
+  "Meat",
+  "Dairy",
+  "Baking",
+  "Condiments",
+  "Spices",
+  "Canned and Boxed",
+  "Asian",
+  "Asian Specialty",
+  "Italian",
+  "Indian",
+  "Online",
+  "Pasta",
+  "Vegetables"
+ ],
+ "Meal": [
+  "Dinner",
+  "Side",
+  "Breakfast",
+  "Lunch",
+  "Salad"
+ ],
+ "Type": [
+  "Chicken",
+  "Beef",
+  "Pork",
+  "Lamb",
+  "Fish & Seafood",
+  "Vegetarian",
+  "Thai",
+  "Japanese",
+  "Korean",
+  "Indonesian",
+  "Greek",
+  "Mediterranean",
+  "Italian",
+  "Indian",
+  "Mexican",
+  "Lamb",
+  "Chinese",
+  "Pasta",
+  "Turkey"
+ ]
+}

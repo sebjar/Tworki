@@ -1,0 +1,50 @@
+{
+ "Kurczak ze szpinakiem": [
+  "oliwa z oliwek",
+  "płatki chilli",
+  "sól",
+  "pieprz",
+  "oregano",
+  "papryka słodka"
+ ],
+ "Carbonara": [
+  "pieprz",
+  "sól"
+ ],
+ "Ziemniaczane talarki": [
+  "papryka słodka",
+  "papryka ostra",
+  "czosnek",
+  "pieprz",
+  "sól",
+  "oliwa z oliwek"
+ ],
+ "Burrito": [
+  "oliwa z oliwek",
+  "oregano",
+  "kumin",
+  "chilli"
+ ],
+ "McWrap Tzatziki": [
+  "chili",
+  "do kurczaka",
+  "suszony czosnek",
+  "koper"
+ ],
+ "Gnocchi z kurczakiem": [
+  "zioła koksa mateusza",
+  "szama tuning",
+  "pieprz",
+  "sól",
+  "oliwa z oliwek"
+ ],
+ "Crunch Wrap Supreme": [
+  "oliwa z oliwek",
+  "papryka wędzona",
+  "kumin",
+  "chili",
+  "czosnek granulowany",
+  "pieprz",
+  "sól"
+ ]
+}

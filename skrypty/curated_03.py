@@ -1,0 +1,141 @@
+# -*- coding: utf-8 -*-
+"""Recznie opracowane przepisy 18, 27-33."""
+C = {}
+
+C[18] = dict(
+    name="Kurczak miodowo-czosnkowy z czosnkowym mac and cheese", cat="Obiad", serv=4,
+    ings=[(800, "g", "pierś z kurczaka"), (2.5, "łyżeczka", "sól"),
+          (1.5, "łyżeczka", "pieprz"), (1, "łyżeczka", "płatki chilli"),
+          (1.5, "łyżeczka", "czosnek granulowany"), (1.5, "łyżeczka", "cebula granulowana"),
+          (2.5, "łyżeczka", "papryka wędzona"), (2, "łyżeczka", "oliwa z oliwek"),
+          (30, "g", "masło"), (3, "łyżeczka", "czosnek"), (30, "g", "miód"),
+          (1, "garść", "natka pietruszki"), (300, "ml", "mleko"),
+          (160, "g", "serek śmietankowy"), (0.5, "łyżeczka", "gałka muszkatołowa"),
+          (100, "g", "cheddar"), (220, "g", "makaron")],
+    steps=["Pokrój pierś w kostkę i wymieszaj z solą, pieprzem, płatkami chilli, czosnkiem i cebulą granulowaną oraz papryką wędzoną i oliwą.",
+           "Rozgrzej patelnię na średnim ogniu, rozpuść masło i wrzuć kurczaka partiami — nie zapychaj patelni.",
+           "Smaż 4-5 min z jednej strony na złotą skorupkę, potem 3-4 min z drugiej.",
+           "Zupełnie zmniejsz ogień, dodaj dodatkowe masło, przeciśnięty czosnek i miód. Mieszaj, aż mięso będzie lepkie i oblepione. Odstaw.",
+           "Na tłuszczu po kurczaku smaż czosnek 2 min na małym ogniu, aż zacznie pachnieć.",
+           "Wlej mleko, dodaj serek śmietankowy, sól, pieprz, paprykę wędzoną i gałkę muszkatołową. Mieszaj do całkowitej gładkości.",
+           "Zmniejsz ogień i wsyp cheddar. Mieszaj do rozpuszczenia.",
+           "Dodaj ugotowany makaron, wymieszaj i podawaj z kurczakiem oraz pietruszką."])
+
+C[27] = dict(
+    name="Sałatka z chrupiącym ryżem i kurczakiem", cat="Sałatka", serv=4,
+    note="Autorka podaje 200 g UGOTOWANEGO ryżu — to ok. 80 g suchego, i tyle jest na liście zakupów.",
+    ings=[(80, "g", "ryż parboiled"), (500, "g", "pierś z kurczaka"),
+          (1, "łyżka", "przyprawa do kurczaka"), (1, "łyżeczka", "curry"),
+          (1, "łyżeczka", "papryka słodka"), (1, "łyżeczka", "sól"),
+          (60, "g", "olej roślinny"), (1, "główka", "sałata lodowa"),
+          (2, "szt.", "pomidor"), (1, "szt.", "ogórek"), (1, "szt.", "czerwona cebula"),
+          (20, "ml", "woda"), (2, "łyżeczka", "miód"), (0.5, "szt.", "cytryna"),
+          (350, "g", "jogurt naturalny"), (1, "łyżka", "sos sojowy"),
+          (1, "łyżeczka", "koperek"), (1, "łyżeczka", "pieprz cytrynowy")],
+    steps=["Ugotowany ryż wymieszaj z 30 g oleju, łyżeczką curry, mieloną papryką i łyżeczką soli.",
+           "Rozłóż ryż na blasze wyłożonej papierem i piecz 40 min w 200°C (góra-dół, bez termoobiegu), aż będzie chrupiący.",
+           "Kurczaka pokrój w drobną kostkę i wymieszaj z przyprawą do kurczaka.",
+           "Na patelni rozgrzej pozostały olej i usmaż mięso.",
+           "Sałatę lodową drobno posiekaj lub porwij. Dodaj pokrojone pomidory, ogórek w półplasterkach i cebulę w kostce.",
+           "Dołóż ostudzone mięso, a na wierzch chrupiący ryż.",
+           "Sos: wymieszaj miód z ciepłą wodą, dodaj jogurt, sok z cytryny, sos sojowy, koperek i pieprz cytrynowy. Polej sałatkę."])
+
+C[28] = dict(
+    name="Quesadilla z kurczakiem i papryką", cat="Obiad", serv=4,
+    note="Pełny przepis w formie pisanej: roadtripbus.pl/quesadilla-z-kurczakiem",
+    ings=[(4, "szt.", "tortilla"), (300, "g", "ser żółty"), (200, "g", "pierś z kurczaka"),
+          (450, "g", "papryka"), (150, "g", "cebula"), (1.5, "łyżeczka", "papryka wędzona"),
+          (1, "łyżeczka", "czosnek granulowany"), (0.5, "łyżeczka", "pieprz"),
+          (0.5, "łyżeczka", "sól"), (0.5, "łyżeczka", "pieprz cayenne"),
+          (80, "ml", "olej roślinny")],
+    steps=["Pierś z kurczaka pokrój w drobną kostkę lub cienkie paski.",
+           "Paprykę i cebulę pokrój w paski.",
+           "Rozgrzej część oleju i podsmaż kurczaka z papryką wędzoną, czosnkiem granulowanym, solą, pieprzem i cayenne.",
+           "Dodaj paprykę i cebulę, smaż razem, aż warzywa zmiękną, a nadmiar wody odparuje. Ostudź lekko.",
+           "Na połowę tortilli wyłóż ser, na to farsz, przykryj resztą sera i złóż tortillę na pół.",
+           "Piecz quesadillę na suchej lub lekko natłuszczonej patelni po 2-3 min z każdej strony, aż ser się rozpuści, a tortilla będzie chrupiąca.",
+           "Pokrój na trójkąty i podawaj od razu."])
+
+C[29] = dict(
+    name="Butter chicken", cat="Obiad", serv=4,
+    note="Autor nie podał gramatur — ilości to moje oszacowanie na 4 porcje na podstawie nagrania.",
+    ings=[(700, "g", "udka z kurczaka"), (150, "g", "jogurt grecki"),
+          (2, "łyżeczka", "garam masala"), (1, "łyżeczka", "kurkuma"),
+          (1, "łyżeczka", "papryka słodka"), (2, "łyżeczka", "sól"),
+          (60, "g", "masło"), (6, "ząbek", "czosnek"), (1, "szt.", "cebula"),
+          (400, "g", "passata pomidorowa"), (1, "łyżeczka", "cukier"),
+          (200, "ml", "śmietana kremówka"), (1, "garść", "natka pietruszki")],
+    steps=["Pokrój udka w kostkę i wymieszaj z jogurtem greckim oraz przyprawami.",
+           "Rozgrzej dużą patelnię i smaż kurczaka, aż nabierze złotobrązowego koloru. Odłóż na bok.",
+           "Odglazuj patelnię masłem, dodaj dużo posiekanego czosnku i cebulę w kostce, smaż do zeszklenia.",
+           "Wlej passatę pomidorową i dodaj odrobinę cukru.",
+           "Wróć z kurczakiem na patelnię i wlej śmietanę kremówkę.",
+           "Gdy sos zacznie bulgotać i zrobi się pomarańczowy, dodaj posiekaną pietruszkę i jeszcze kawałek masła.",
+           "Podawaj z ryżem lub naanem."])
+
+C[30] = dict(
+    name="McChicken domowy", cat="Obiad", serv=6,
+    ings=[(900, "g", "mięso mielone z piersi kurczaka"), (2, "łyżeczka", "sól"),
+          (1, "łyżeczka", "pieprz"), (4, "łyżeczka", "czosnek granulowany"),
+          (4, "łyżeczka", "cebula granulowana"), (8, "łyżka", "mąka"),
+          (0.33, "szklanka", "woda"), (500, "ml", "olej roślinny"),
+          (1, "szklanka", "majonez"), (2, "łyżka", "musztarda"),
+          (1, "łyżeczka", "ocet"), (6, "szt.", "bułka"), (1, "główka", "sałata lodowa")],
+    steps=["W misce wymieszaj mielonego kurczaka z solą, pieprzem, czosnkiem i cebulą granulowaną.",
+           "Natłuść dłonie olejem i uformuj okrągłe kotlety. Ułóż je na blasze wyłożonej papierem i wstaw do zamrażarki na 30 min.",
+           "Podziel mąkę na dwie miski (po ok. 4 łyżki). Do obu dodaj sól, pieprz, czosnek i cebulę granulowaną.",
+           "Do jednej z misek wlej wodę i rozmieszaj na gładkie, rzadkie ciasto.",
+           "Obtaczaj kotlety kolejno: sucha mąka, mokre ciasto, ponownie sucha mąka.",
+           "Smaż w rozgrzanym oleju na złoto z obu stron, odsącz na papierze.",
+           "Sos: wymieszaj majonez, musztardę Dijon, sól, pieprz i ocet.",
+           "Podpiecz bułki, posmaruj sosem, dodaj posiekaną sałatę i kotlet."])
+
+C[31] = dict(
+    name="Leczo z chorizo", cat="Obiad", serv=3,
+    ings=[(200, "g", "chorizo"), (150, "g", "cebula"), (120, "g", "papryka"),
+          (120, "g", "marchewka"), (400, "g", "cukinia"), (400, "g", "pomidor"),
+          (25, "g", "koncentrat pomidorowy"), (400, "ml", "woda"),
+          (1, "łyżeczka", "papryka słodka"), (1, "łyżeczka", "papryka ostra"),
+          (1, "łyżeczka", "bazylia"), (1, "łyżeczka", "oregano"),
+          (1, "łyżeczka", "cukier"), (1, "łyżeczka", "sól"), (1, "łyżeczka", "pieprz")],
+    steps=["Pokrój chorizo na plasterki i podsmaż na suchej patelni 5-10 min, aż wytopi się tłuszcz. Przełóż mięso do miski.",
+           "Na tłuszczu z chorizo podsmaż cebulę pokrojoną w piórka przez 5 min.",
+           "Dodaj marchewkę i paprykę w kostce, smaż kolejne 5 min, mieszając.",
+           "Wrzuć cukinię w kostce i smaż następne 5 min.",
+           "Dodaj pokrojone pomidory (lub pomidory z puszki), koncentrat, wodę i wszystkie przyprawy. Dokładnie wymieszaj i duś.",
+           "Na ostatnie 5 min dorzuć z powrotem chorizo.",
+           "Podawaj z ryżem lub kaszą. Z przepisu wychodzą 3 porcje."])
+
+C[32] = dict(
+    name="Szaszłyki tandoori z kurczaka", cat="Obiad", serv=4,
+    note="Autor pisze wprost „Yields: 4 Chicken Skewers” i podaje 168 kcal ZA JEDEN szaszłyk — miałem tu 3 porcje, poprawione na 4.",
+    ings=[(400, "g", "udka z kurczaka"), (2, "łyżka", "jogurt grecki"),
+          (1, "łyżka", "koncentrat pomidorowy"), (1, "szt.", "cytryna"),
+          (1, "łyżka", "czosnek"), (1, "łyżka", "imbir"), (1, "łyżeczka", "sól"),
+          (1, "łyżeczka", "pieprz"), (1, "łyżeczka", "papryka słodka"),
+          (1, "łyżeczka", "kumin"), (1, "łyżeczka", "kurkuma"),
+          (1, "łyżeczka", "chili"), (1, "łyżeczka", "garam masala"),
+          (1, "łyżeczka", "oliwa z oliwek"), (0.5, "szklanka", "papryka czerwona"),
+          (0.5, "szklanka", "papryka zielona"), (0.5, "szklanka", "czerwona cebula")],
+    steps=["Pokrój mięso w kostkę.",
+           "Wymieszaj marynatę: jogurt grecki, koncentrat pomidorowy, sok z cytryny, przeciśnięty czosnek, starty imbir, wszystkie przyprawy i oliwa.",
+           "Obtocz mięso w marynacie. Marynowanie jest opcjonalne, ale im dłużej, tym lepszy smak.",
+           "Nadziewaj na patyczki na przemian z papryką i czerwoną cebulą.",
+           "Piecz w piekarniku ok. 20 min, aż mięso się przypiecze i będzie soczyste.",
+           "Dla tradycyjnego smaku użyj chili kaszmirskiego zamiast zwykłego."])
+
+C[33] = dict(
+    name="Składany wrap z chilli con carne i masłem czosnkowym", cat="Obiad", serv=2,
+    ings=[(2, "szt.", "tortilla"), (50, "g", "mozzarella"),
+          (300, "g", "chilli con carne"), (20, "g", "nachosy"), (5, "g", "masło"),
+          (1, "łyżeczka", "czosnek"), (1, "łyżka", "natka pietruszki"),
+          (60, "g", "jogurt grecki"), (0.25, "łyżeczka", "czosnek granulowany"),
+          (0.25, "łyżeczka", "cebula granulowana"), (1, "łyżeczka", "szczypiorek"),
+          (1, "łyżeczka", "ocet")],
+    steps=["Zrób sos szczypiorkowy: wymieszaj jogurt grecki, czosnek i cebulę granulowaną, suszony szczypiorek i ocet. Odstaw.",
+           "Natnij tortillę od środka do brzegu, tworząc cztery ćwiartki.",
+           "W pierwszej ćwiartce ułóż ser, w drugiej chilli con carne, w trzeciej pokruszone chipsy tortilla, w czwartej sos.",
+           "Złóż wrapa ćwiartka na ćwiartkę w trójkąt.",
+           "Rozpuść masło z posiekanym czosnkiem i pietruszką.",
+           "Podpiecz wrapa na patelni z obu stron, aż będzie chrupiący, a ser się rozpuści.",
+           "Posmaruj wierzch masłem czosnkowym i podawaj."])
