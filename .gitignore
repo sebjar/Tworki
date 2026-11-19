@@ -1,33 +1,3 @@
-# surowe pliki pobrane z TikToka/Instagrama - duze, nie do repozytorium (odtwarzalne skryptami)
-skrypty/zdjecia_zrodla/
-skrypty/zdjecia_stare/
-skrypty/kopie*/
-skrypty/tmp/
-# linki z podpisami CDN wygasaja - nie trzymamy ich w repo
-skrypty/zdj_ig.json
-# kopie publikowane i wygenerowane (odtwarzane przez app_eksport.py)
-skrypty/app/zdj/
-skrypty/app/Przepisy-planer.html
-skrypty/app/zdj_lista.json
-zdj/
-Przepisy-aplikacja.html
-# wyniki uruchomien i pliki tymczasowe
-skrypty/out_*.txt
-skrypty/_*.jpg
-skrypty/*.mp4
-skrypty/ig_nowe.json
-skrypty/kandydaci_*.jpg
-skrypty/tt_kand_*.jpg
-skrypty/ig_*.jpg
-skrypty/weryf_*.jpg
-skrypty/zrodla_*.jpg
-skrypty/__pycache__/
-**/__pycache__/
-# arkusze robocze (wersje sprzed zmian) i podglad
-skrypty/_przed_*.xlsx
-skrypty/_test.xlsx
-skrypty/probe.xlsx
-skrypty/_nowa.xlsx
-skrypty/_stara.xlsx
-skrypty/_po_weryf.xlsx
-skrypty/_przed_sugestiami.xlsx
+# pamiec podreczna Pythona - nie dane, nie wrzucamy
+__pycache__/
+*.pyc

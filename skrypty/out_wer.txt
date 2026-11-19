@@ -1,0 +1,20 @@
+A. Zdjęcia w arkuszu
+  Przepisy: 206 przepisów, 327 zdjęć, z dwoma: 163, z jednym: ['P085'], bez: ['P100', 'P116', 'P133', '=IF($B169="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B170="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B171="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B172="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B173="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B174="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B175="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B176="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B177="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B178="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B179="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B180="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B181="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B182="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B183="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B184="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B185="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B186="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B187="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B188="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B189="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B190="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B191="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B192="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B193="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B194="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B195="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B196="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B197="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B198="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B199="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B200="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B201="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B202="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B203="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B204="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B205="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B206="","","P"&TEXT(ROW()-1+0,"000"))', '=IF($B207="","","P"&TEXT(ROW()-1+0,"000"))']
+  Sugestie: 20 przepisów, 40 zdjęć, z dwoma: 20, z jednym: [], bez: []
+  Sugestie: ['P148'] ... ['P167'] 20
+B. Zmiany poza zdjęciami (formuły i wartości, wszystkie arkusze)
+  Instrukcja: dodane wiersze: [] | usunięte: []
+  Ustawienia     komórek zmienionych: 0 | szerokości kolumn: [] | walidacje 0/0 | formatowanie warunkowe 0/0
+  Przepisy       komórek zmienionych: 0 | szerokości kolumn: [] | walidacje 1/1 | formatowanie warunkowe 5/5
+  Sugestie       komórek zmienionych: 0 | szerokości kolumn: [] | walidacje 0/0 | formatowanie warunkowe 0/0
+  Składniki      komórek zmienionych: 0 | szerokości kolumn: [] | walidacje 3/3 | formatowanie warunkowe 2/2
+  Plan           komórek zmienionych: 0 | szerokości kolumn: [] | walidacje 1/1 | formatowanie warunkowe 0/0
+  Lista zakupów  komórek zmienionych: 0 | szerokości kolumn: [] | walidacje 3/3 | formatowanie warunkowe 1/1
+  Weryfikacja    komórek zmienionych: 0 | szerokości kolumn: [] | walidacje 0/0 | formatowanie warunkowe 0/0
+C. Źródło zdjęć = link przepisu
+  sprawdzone linki: 206
+D. Pliki zdjęć
+  podobne (5/256): P112_1 P126_2
+  plików: 327
+
+WYNIK: BEZ BŁĘDÓW

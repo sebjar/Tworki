@@ -1,0 +1,26 @@
+==========================================================================
+PRZESZLO (14):
+   OK   Wszystkie 6 arkuszy na miejscu
+   OK   Każdy z 2045 wierszy Składników wskazuje istniejący przepis
+   OK   Wszystkie 244 pozycji listy zakupów ma pokrycie w Składnikach
+   OK   Każdy kupowalny składnik ma dokładnie jeden wiersz na liście zakupów
+   OK   Wszystkie 167 przepisów ma kategorię
+   OK   Liczba porcji poprawna wszędzie (1-24)
+   OK   Każdy składnik ma dodatnią ilość liczbową
+   OK   Żadna ilość nie przekracza progu zdrowego rozsądku
+   OK   Każdy składnik ma przypisany dział sklepu
+   OK   Brak powtórzonych składników w obrębie przepisu
+   OK   Makra zgodne ze wzorem Atwatera we wszystkich 150 przepisach
+   OK   Wyliczone kcal zgadzają się z sumą składników co do jednostki
+   OK   Wszystkie 245 składników ma wartości odżywcze
+   OK   Wszystkie 43 linków z jedzenie.xlsx obecne
+
+DO UWAGI (1):
+   !    Ma przygotowanie, brak składników 17: ['Arayes (bliskowschodnie pity z mięsem)', 'Bez przepisu (@mat.suchecki)', 'Big Mac Smashburger Tacos']
+
+BLEDY (0):
+==========================================================================
+Przepisow: 167 | wierszy skladnikow: 2045 | pozycji zakupowych: 244
+Kategorie: {'Obiad': 120, 'Zupa': 2, 'Sałatka': 14, 'Kolacja': 6, 'Przekąska': 10, 'Śniadanie': 6, 'Deser': 4, 'Sos / dodatek': 5}
+Opracowanie: {'ręcznie': 167}
+Zrodlo makr: {'autor nie podał': 89, 'autor zaniża o 19%': 2, 'autor zaniża o 45%': 1, 'autor zaniża o 24%': 2, 'zgodne (-3%)': 2, 'autor zaniża o 23%': 2, 'autor zaniża o 17%': 3, 'autor zaniża o 15%': 3, 'autor zaniża o 31%': 2, 'autor zaniża o 18%': 1, 'zgodne (-2%)': 1, 'autor zaniża o 13%': 5, 'autor zaniża o 20%': 2, 'zgodne (-10%)': 4, 'autor zaniża o 12%': 2, 'autor zaniża o 11%': 1, 'zgodne (-1%)': 1, 'autor zaniża o 29%': 2, 'autor zaniża o 37%': 1, 'autor zaniża o 26%': 4, 'zgodne (-6%)': 3, 'zgodne (+8%)': 1, 'autor zaniża o 25%': 3, 'zgodne (-5%)': 1, 'autor zaniża o 43%': 1, 'zgodne (-8%)': 1, 'autor zaniża o 34%': 1, 'brak': 17, 'zgodne (-7%)': 1, 'autor zaniża o 21%': 2, 'autor zaniża o 16%': 1, 'autor zaniża o 14%': 1, 'autor zaniża o 33%': 1, 'autor zaniża o 30%': 1, 'autor zaniża o 35%': 1, 'zgodne (+1%)': 1}

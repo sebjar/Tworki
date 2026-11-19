@@ -1,0 +1,26 @@
+Test na 4 przepisach:
+   Poniedziałek McDonald's w domu: bułki, nuggetsy, McChic 12 porcji (baza 6)
+   Wtorek       Burrito z kurczakiem tikka masala          11 porcji (baza 11)
+   Środa        Fajitas z kurczakiem z blachy z sosem chip 12 porcji (baza 6)
+   Piątek       Crunch Wrap Supreme                        4 porcji (baza 4)
+
+BLEDY FORMUL: 0
+
+LISTA ZAKUPOW: oczekiwano 65 pozycji, jest 65, rozbieznosci: 0
+
+WIERSZE PLANU [kcal, bialko, tluszcz, wegle]:
+   Poniedziałek P001: McDonald's w domu: bułki, nugget porcje=12    [13764, 756, 708, 1104]
+   Wtorek       P002: Burrito z kurczakiem tikka masal porcje=11    [6512, 451, 220, 693]
+   Środa        P003: Fajitas z kurczakiem z blachy z  porcje=12    [6276, 348, 432, 312]
+   Piątek       P004: Crunch Wrap Supreme              porcje=4     [3864, 204, 220, 284]
+
+SUMY DOBOWE [kcal, bialko, tluszcz, wegle]:
+   Poniedziałek   [13764, 756, 708, 1104]     
+   Wtorek         [6512, 451, 220, 693]       
+   Środa          [6276, 348, 432, 312]       
+   Czwartek       [0, 0, 0, 0]                
+   Piątek         [3864, 204, 220, 284]       
+   Sobota         [0, 0, 0, 0]                
+   Niedziela      [0, 0, 0, 0]                
+
+Sumy dobowe niezgodne: 0
