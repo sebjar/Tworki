@@ -10,7 +10,7 @@ Działa w przeglądarce, bez serwera: otwórz `index.html` (zdjęcia leżą obok
 - **Tydzień**: śniadania, obiady i kolacje na 3–7 dni. Losowanie całego tygodnia albo tylko jednego
   posiłku, „Inne” dla pojedynczego dania, blokowanie dań, ręczny wybór, cofanie. Dania, które to
   zniosą, gotuje się raz na dwa dni. Plan dobiera dania dzielące świeże składniki, żeby mniej się
-  marnowało, i może pilnować limitu czasu gotowania w dni robocze.
+  marnowało.
 - **Czas przygotowania**: przy każdym przepisie orientacyjny czas pracy i czas do podania
   (z uwagą, gdy coś marynuje się lub rośnie), suma pracy na dzień i na tydzień.
 - **Zakupy**: lista z całego planu, w całych opakowaniach ze sklepu, z odhaczaniem i kopiowaniem.

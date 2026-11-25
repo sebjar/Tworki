@@ -1,5 +1,5 @@
 // Test logiki aplikacji bez przegladarki: atrapa DOM, potem plany tygodnia (sniadania, obiady,
-// kolacje), blokady, zamiany, wstawianie, liczba dni, posilki, limit czasu, ulubione i wykluczone,
+// kolacje), blokady, zamiany, wstawianie, liczba dni, posilki, ulubione i wykluczone,
 // wyszukiwanie, czasy przygotowania, jednostki i lista zakupow.
 // Uzycie: node app/test_planu.js (po node app/buduj.mjs). Kod wyjscia 1 = cos nie przeszlo.
 const fs = require("fs"), path = require("path");
@@ -88,11 +88,6 @@ ok(A.R.filter(doPl => A.pula("obiad").includes(doPl) || doPl.kr.length).every(r 
 ok(!BY.P121.cz && !BY.P133.cz, "wpisy bez przepisu: czas nieznany");
 ok(A.czasGot(BY.P084) < 60, `owsianka na noc liczy się jako praca: ${A.czasGot(BY.P084)} min`);
 ok(A.czasTxt(45) === "45 min" && A.czasTxt(90) === "1 h 30" && A.czasTxt(120) === "2 h", "format czasu");
-const dlugie = s => s.filter(x => x.m === "obiad" && [1, 2, 3, 4, 5].includes(new Date(2026, 10, 30 + x.dni[0]).getDay()) && A.czasGot(BY[x.id]) > 30).length;
-S.start = "2026-11-30"; let bez = 0, z = 0;
-for (let i = 0; i < 4; i++) { A.nowyPlan(); bez += dlugie(S.plan); }
-S.maxCzas = 30; for (let i = 0; i < 4; i++) { A.nowyPlan(); z += dlugie(S.plan); } S.maxCzas = 0;
-ok(z < bez / 2, `limit 30 min w dni robocze: długich obiadów Pon–Pt ${z} zamiast ${bez} (4 plany)`);
 
 console.log("Ulubione i wykluczone");
 const ul = A.pula("obiad").slice(0, 15).map(r => r.id); ul.forEach(id => A.ULUB.add(id));

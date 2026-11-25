@@ -348,7 +348,6 @@ details.pantry summary { cursor: pointer; font-weight: 600; padding: 8px 0 12px;
       <label class="lbl" for="p-start">Od <select id="p-start"></select></label>
       <label class="lbl" for="p-ndni">na <select id="p-ndni"><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select> dni</label>
       <div class="chips" id="p-pos" aria-label="Posiłki w planie"></div>
-      <label class="lbl" for="p-max">Pon–Pt gotowanie <select id="p-max"><option value="0">bez limitu</option><option value="30">do 30 min</option><option value="45">do 45 min</option><option value="60">do 1 h</option></select></label>
     </div>
     <div class="reroll" id="reroll"></div>
     <div class="plan-layout">
@@ -416,7 +415,7 @@ const POSILKI = [
 ];
 const POS = Object.fromEntries(POSILKI.map(p => [p.k, p]));
 const S = Object.assign({ ty: DANE.kcal[0], ona: DANE.kcal[1], podzial: DANE.podzial, dwa: true, pref: true, kat: null,
-  pos: POSILKI.map(p => p.k), maxCzas: 0, plan: null, kupione: {}, mam: {}, ulub: [], ban: [], start: iso(dzis()), ndni: 7 }, wczytaj());
+  pos: POSILKI.map(p => p.k), plan: null, kupione: {}, mam: {}, ulub: [], ban: [], start: iso(dzis()), ndni: 7 }, wczytaj());
 // stan z wersji z samymi obiadami: kategorie byly lista, sesje nie mialy posilku
 if (!S.kat || Array.isArray(S.kat)) S.kat = Object.fromEntries(POSILKI.map(p => [p.k, p.k === "obiad" && Array.isArray(S.kat) && S.kat.length ? S.kat : [...p.def]]));
 for (const p of POSILKI) if (!Array.isArray(S.kat[p.k]) || !S.kat[p.k].length) S.kat[p.k] = [...p.def];
@@ -548,10 +547,8 @@ function bilans(m) {
 }
 // Kara planu: resztki z opakowan, swieze produkty kupowane do jednego dania (lekko), minus
 // skladniki dzielone miedzy daniami i ulubione. Dania z poprzedniego ukladu dostaja doplate,
-// zeby "Losuj" dawal nowe dania, a nie wciaz te same, najoszczedniejsze. Dlugie gotowanie
-// w dzien roboczy (ponad limit z ustawien) tez kosztuje.
+// zeby "Losuj" dawal nowe dania, a nie wciaz te same, najoszczedniejsze.
 let OSTATNI = new Set();
-const roboczy = d => { const w = dataDnia(d).getDay(); return w >= 1 && w <= 5; };
 function kara(plan) {
   const b = bilans(potrzeby(plan));
   let k = b.strata + .12 * b.samotne - .25 * b.dzielone;
@@ -559,7 +556,6 @@ function kara(plan) {
   for (const s of plan) {
     if (OSTATNI.has(s.id)) k += .6;
     if (S.pref && ULUB.has(s.id)) k -= .9;
-    if (S.maxCzas && roboczy(s.dni[0]) && czasGot(BY[s.id]) > S.maxCzas) k += 3;
   }
   for (let i = 0; i < ids.length; i++) for (let j = i + 1; j < ids.length; j++) {
     if (ids[i] === ids[j]) k += 50;
@@ -862,7 +858,6 @@ function renderPlan() {
   for (let i = 0; i < 7; i++) opcje.push(new Date(t0.getFullYear(), t0.getMonth(), t0.getDate() + i));
   $("#p-start").innerHTML = opcje.map(d => { const v = iso(d), lab = v === iso(t0) ? "dziś" : v === iso(new Date(t0.getFullYear(), t0.getMonth(), t0.getDate() + 1)) ? "jutro" : DNI_DL[d.getDay()]; return `<option value="${v}" ${v === S.start ? "selected" : ""}>${lab}, ${d.getDate()}.${d.getMonth() + 1}</option>`; }).join("");
   $("#p-ndni").value = String(S.ndni);
-  $("#p-max").value = String(S.maxCzas);
   $("#p-pos").innerHTML = POSILKI.map(p => chip(S.pos.includes(p.k), `data-pos="${p.k}"`, p.n)).join("");
   $("#reroll").innerHTML = `<span class="lbl">Losuj od nowa:</span>` + S.pos.map(k => `<button class="ib" data-reroll="${k}">${I.dice}${POS[k].lm}</button>`).join("");
   const dzisIso = iso(dzis());
@@ -1044,7 +1039,6 @@ $("#cofnij").addEventListener("click", cofnij);
 $("#toast-b").addEventListener("click", () => { $("#toast").hidden = true; cofnij(); });
 $("#odznacz").addEventListener("click", () => { S.kupione = {}; S.mam = {}; zapisz(); renderZakupy(); });
 $("#p-ndni").addEventListener("change", e => ustawDni(+e.target.value));
-$("#p-max").addEventListener("change", e => { S.maxCzas = +e.target.value; zapisz(); renderPlan(); toast(S.maxCzas ? "Przy losowaniu dni robocze dostaną dania do " + czasTxt(S.maxCzas) + "." : "Bez limitu czasu."); });
 $("#p-start").addEventListener("change", e => { S.start = e.target.value; zapisz(); renderPlan(); renderZakupy(); });
 $("#kopiuj").addEventListener("click", () => {
   const t = tekstListy();
