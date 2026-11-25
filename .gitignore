@@ -1,3 +1,10 @@
 # pamiec podreczna Pythona - nie dane, nie wrzucamy
 __pycache__/
 *.pyc
+# wyniki uruchomien, pliki tymczasowe i kopie arkuszy sprzed zmian
+skrypty/out_*.txt
+skrypty/_przed_*.xlsx
+skrypty/_test.xlsx
+skrypty/tmp/
+# lokalna konfiguracja podgladu
+.claude/

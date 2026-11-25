@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
-"""Dane do aplikacji (Przepisy-aplikacja.html): przepisy, skladniki w gramach, zdjecia i
-typowe opakowania, z ktorych aplikacja liczy, co zostanie po tygodniu.
-Czyta _wartosci.xlsx (po przelicz.py) i zdjecia/, sklada app/szablon.html w jeden plik.
+"""Dane do aplikacji (index.html): przepisy, skladniki w gramach, zdjecia i typowe
+opakowania, z ktorych aplikacja liczy, co zostanie po tygodniu.
+Czyta _wartosci.xlsx (po przelicz.py) i zdjecia/, zapisuje dane/przepisy.json i zdj/,
+potem uruchamia node app/buduj.mjs (sklada app/szablon.html + dane w index.html).
+Czasy przygotowania sa w dane/czasy.json (edytowane recznie, ten skrypt ich nie rusza).
 Uzycie: build_v2.py -> przelicz.py -> app_eksport.py"""
-import hashlib, io, json, os, re, sys
+import hashlib, io, json, os, re, subprocess, sys
 import openpyxl
 from PIL import Image
 from nutrition import grams
 
 sys.stdout.reconfigure(encoding="utf-8")
 SP = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(os.path.dirname(SP), "Przepisy-aplikacja.html")
+KORZEN = os.path.dirname(SP)
+OUT = os.path.join(KORZEN, "dane", "przepisy.json")
 
 # Typowe opakowanie w polskim sklepie: (gramy, jak sie kupuje, waga marnowania).
 # Waga mowi, jak bardzo boli resztka: swieze ziola i szpinak 1, mieso 0.6 (da sie zamrozic),
@@ -55,12 +58,11 @@ SPIZARNIA = {"Sypkie i makarony", "Przyprawy i zioła", "Oleje i sosy", "Słodyc
              "Napoje", "Mrożonki"}
 
 
-# Zdjecia ida obok strony jako osobne pliki (wklejone w strone przekroczylyby limit 16 MB):
-# app/zdj/ dla wersji opublikowanej i zdj/ obok Przepisy-aplikacja.html dla wersji z dysku.
+# Zdjecia ida obok strony jako osobne pliki w zdj/ (wklejone w strone przekroczylyby limit 16 MB).
 # Bok 720 px wystarcza na ekran telefonu (karta ~250 pkt x 3), a w nazwie jest skrot tresci,
 # zeby przegladarka nie pokazywala starego zdjecia z pamieci po podmianie.
 ZDJ_BOK, ZDJ_JAKOSC = 720, 82
-ZDJ_DIRS = [os.path.join(SP, "app", "zdj"), os.path.join(os.path.dirname(SP), "zdj")]
+ZDJ_DIRS = [os.path.join(KORZEN, "zdj")]
 for d in ZDJ_DIRS:
     os.makedirs(d, exist_ok=True)
     for f in os.listdir(d):
@@ -180,21 +182,10 @@ dane = dict(przepisy=przepisy, paczki={k: list(v) for k, v in PACZKI.items()},
             kcal=[round(v) for v in ust.get("_kcal", [2900, 1820])],
             podzial=ust.get("_podzial", [0.6, 0.4])[0], wersja="3.11.2026",
             miniatury=dict(pliki=zapisz_miniatury(), kol=MIN_KOL, wier=MIN_WIER))
-js = json.dumps(dane, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-szablon = io.open(os.path.join(SP, "app", "szablon.html"), encoding="utf-8").read()
-strona = szablon.replace("/*__DANE__*/null", js)
-# wersja do opublikowania (claude.ai dokleja sam naglowek z kodowaniem i viewportem)
-io.open(os.path.join(SP, "app", "Przepisy-planer.html"), "w", encoding="utf-8").write(strona)
-# wersja do otwierania z dysku: wlasny naglowek, inaczej polskie litery sie sypia
-io.open(OUT, "w", encoding="utf-8").write(
-    '<!doctype html>\n<html lang="pl">\n<meta charset="utf-8">\n'
-    '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-    '<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}'
-    'body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>\n' + strona + "\n</html>\n")
-# lista plikow do publikacji (Artifact przyjmuje do 255 plikow na raz - dziele na paczki)
-json.dump(["zdj/" + n for n, _, _ in ZAPISANE], open(os.path.join(SP, "app", "zdj_lista.json"), "w"), indent=0)
+io.open(OUT, "w", encoding="utf-8").write(json.dumps(dane, ensure_ascii=False, separators=(",", ":")))
+subprocess.run(["node", os.path.join(KORZEN, "app", "buduj.mjs")], check=True)
 boki = sorted(w for _, w, _ in ZAPISANE)
 print("przepisow:", len(przepisy), "| ze zdjeciami:", sum(1 for p in przepisy if p["z"]),
-      "| kcal:", dane["kcal"], "| strona: %.2f MB" % (os.path.getsize(OUT) / 1e6),
+      "| kcal:", dane["kcal"], "| dane: %.2f MB" % (os.path.getsize(OUT) / 1e6),
       "| zdjec: %d, razem %.1f MB, bok min/mediana/max: %d/%d/%d px" % (
           len(ZAPISANE), sum(s for _, _, s in ZAPISANE) / 1e6, boki[0], boki[len(boki) // 2], boki[-1]))

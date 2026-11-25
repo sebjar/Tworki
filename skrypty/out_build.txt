@@ -1,4 +1,0 @@
-Przepisow: 167 | opracowanych recznie: 167 | ze skladnikami: 150 | z przygotowaniem: 148
-Wierszy skladnikow: 2045 | do sprawdzenia: 0 | oznaczonych jako podobne: 28
-Zapisano: C:\Users\Sebastian\Documents\Przepisy-planer\Przepisy-planer.xlsx
-Pozycji na liscie zakupow: 244
