@@ -11,10 +11,12 @@ const czytaj = p => fs.readFileSync(path.join(KORZEN, p), "utf8");
 const dane = JSON.parse(czytaj("dane/przepisy.json"));
 const czasy = JSON.parse(czytaj("dane/czasy.json"));
 
-// czas przygotowania: [minuty pracy, minuty do podania, uwaga] - orientacyjnie
+// czas przygotowania: [minuty pracy, minuty do podania, uwaga] - orientacyjnie;
+// null w czasy.json = wpis bez przepisu, czasu nie da sie podac
 const brak = [];
 for (const r of dane.przepisy) {
   const c = czasy[r.id];
+  if (c === null) continue;
   if (!c) { brak.push(r.id); continue; }
   r.cz = c.u ? [c.a, c.c, c.u] : [c.a, c.c];
 }
@@ -30,6 +32,9 @@ const html = '<!doctype html>\n<html lang="pl">\n<meta charset="utf-8">\n' +
   '<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}' +
   'body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>\n' + strona + "\n</html>\n";
 fs.writeFileSync(path.join(KORZEN, "index.html"), html);
+// node app/buduj.mjs <plik>: dodatkowo wersja do publikacji na claude.ai (bez doctype i <head>,
+// claude.ai dokleja je sam); zdjecia publikuje sie obok jako zdj/*
+if (process.argv[2]) fs.writeFileSync(process.argv[2], strona);
 
 const zCzasem = dane.przepisy.filter(r => r.cz).length;
 console.log(`index.html: ${dane.przepisy.length} przepisów, ${zCzasem} z czasem przygotowania, ${(html.length / 1e6).toFixed(2)} MB`);

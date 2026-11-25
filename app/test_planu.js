@@ -84,7 +84,8 @@ S.kat.obiad = ["Obiad"]; S.dwa = false; S.plan = null; A.nowyPlan(); spojny("try
 ok(A.pula("sniadanie").length < 7, `śniadań mniej niż dni (${A.pula("sniadanie").length}), a tydzień pełny`);
 
 console.log("Czas przygotowania");
-ok(A.R.every(r => r.cz && r.cz[0] > 0 && r.cz[1] >= r.cz[0]), "każdy przepis ma czas: praca ≤ całość");
+ok(A.R.filter(doPl => A.pula("obiad").includes(doPl) || doPl.kr.length).every(r => r.cz && r.cz[0] > 0 && r.cz[1] >= r.cz[0]), "każdy przepis z krokami ma czas: praca ≤ całość");
+ok(!BY.P121.cz && !BY.P133.cz, "wpisy bez przepisu: czas nieznany");
 ok(A.czasGot(BY.P084) < 60, `owsianka na noc liczy się jako praca: ${A.czasGot(BY.P084)} min`);
 ok(A.czasTxt(45) === "45 min" && A.czasTxt(90) === "1 h 30" && A.czasTxt(120) === "2 h", "format czasu");
 const dlugie = s => s.filter(x => x.m === "obiad" && [1, 2, 3, 4, 5].includes(new Date(2026, 10, 30 + x.dni[0]).getDay()) && A.czasGot(BY[x.id]) > 30).length;
@@ -115,7 +116,7 @@ A.F.bialko = "Ryby i owoce morza"; const ryby = A.lista(); A.F.bialko = null;
 ok(ryby.length > 0 && ryby.every(r => r.ing.some(x => /łosoś|ryba|pstrąg|krewet|surimi|tuńczyk|dorsz/.test(x[0]))), `filtr ryby: ${ryby.length}, każdy ma rybę`);
 A.F.kcal = 600; const lekkie = A.lista(); A.F.kcal = 0; ok(lekkie.every(r => r.kcal <= 600), `do 600 kcal: ${lekkie.length}`);
 A.F.czas = 30; const szybkie = A.lista(); A.F.czas = 0; ok(szybkie.length > 5 && szybkie.every(r => A.czasGot(r) <= 30), `do 30 min: ${szybkie.length}`);
-A.F.sort = "czas"; const sc = A.lista(); A.F.sort = "id"; ok(sc.every((r, i) => !i || A.czasGot(sc[i - 1]) <= A.czasGot(r)), "sortowanie: najszybsze");
+A.F.sort = "czas"; const sc = A.lista(); A.F.sort = "id"; const kc = r => r.cz ? A.czasGot(r) : 1e9; ok(sc.every((r, i) => !i || kc(sc[i - 1]) <= kc(r)), "sortowanie: najszybsze, bez czasu na końcu");
 A.F.sort = "bialko"; const sb = A.lista(); A.F.sort = "id"; ok(sb.every((r, i) => !i || (sb[i - 1].b ?? -1) >= (r.b ?? -1)), "sortowanie po białku");
 A.F.zr = "sug"; ok(A.lista().length === 20, "tylko sugestie: 20"); A.F.zr = "moje"; ok(A.lista().length === 147, "tylko Twoje: 147"); A.F.zr = "all";
 

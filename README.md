@@ -49,3 +49,13 @@ python skrypty/uruchom.py build_v2.py
 python skrypty/uruchom.py przelicz.py
 python skrypty/uruchom.py app_eksport.py   # zapisuje dane/ i zdj/, potem sam woła app/buduj.mjs
 ```
+
+## Wersja na telefon i wspólny plan
+
+Aplikacja jest opublikowana na claude.ai: https://claude.ai/artifact/GxTjJ9yJu3A37kNXoA1cF1
+Tam plan, odhaczone zakupy, ulubione i ustawienia leżą w jednym wspólnym dokumencie (`db`,
+`wspolne/stan`), więc oba telefony widzą to samo na żywo. Druga osoba potrzebuje dostępu
+co najmniej „Contributor” (Share w aplikacji); z poziomem „Viewer” ma tylko podgląd.
+
+Ponowna publikacja: `node app/buduj.mjs <plik.html>` zapisuje wersję bez nagłówka; publikuje się
+ją pod tym samym adresem, a nowe lub zmienione zdjęcia z `zdj/` jako pliki obok.

@@ -152,7 +152,8 @@ div.ph { display: grid; place-items: center; color: var(--muted); font-size: 12p
 .cell.rest { border-style: dashed; }
 .cell.rest .cimg { filter: saturate(.35) opacity(.75); }
 .cell.free { border-style: dashed; background: none; justify-content: center; align-items: flex-start; padding: 12px; gap: 8px; min-height: 120px; }
-.cell .cimg { aspect-ratio: 16 / 9; width: 100%; background: var(--sunk); cursor: pointer; background-repeat: no-repeat; }
+.cell .cimg { position: relative; overflow: hidden; aspect-ratio: 16 / 9; width: 100%; max-width: 100%; background: var(--sunk); cursor: pointer; }
+.cell .cimg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .cell .mk { position: absolute; top: 6px; left: 6px; font-size: 10.5px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: 2px 7px; border-radius: 99px; background: rgba(12, 18, 14, .72); color: #fff; }
 .cell.free .mk { position: static; background: var(--sunk); color: var(--muted); }
 .cell .cb { padding: 8px 10px 10px; display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
@@ -391,7 +392,10 @@ const I = {
 
 /* ---------- stan: w przegladarce zostaje tylko wygoda (plan, ulubione, odhaczone) ---------- */
 function wczytaj() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
-function zapisz() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { } }
+function zapisz() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { } wyslij(); }
+// wspolny stan (na claude.ai): plan, zakupy, ulubione i ustawienia w jednym dokumencie db
+const WSPOLNE = ["plan", "kupione", "mam", "ulub", "ban", "ty", "ona", "podzial", "dwa", "pref", "kat", "pos", "maxCzas", "start", "ndni"];
+let SYNC = null, SYNC_OSTATNI = null, SYNC_CZEKA = null, SYNC_PISZE = false, SYNC_TYLKO_CZYT = false;
 function dzis() { const d = new Date(); d.setHours(0, 0, 0, 0); return d; }
 const iso = d => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
 /* posilki w planie tygodnia: kategoria z arkusza (udzial w dniu), co moze nim byc */
@@ -813,16 +817,18 @@ function zamknijGotowanie() { $("#cook").hidden = true; try { BLOKADA?.release()
 document.addEventListener("visibilitychange", () => { if (!document.hidden && !$("#cook").hidden && !BLOKADA) blokujEkran(); });
 
 /* ---------- widok: plan ---------- */
+// w komorce planu prawdziwe zdjecie przyciete object-fit (miniatura ze sprite rozciagalaby sie w 16:9)
+const zdjKom = r => r.z[0] ? `<img src="${r.z[0]}" alt="" loading="lazy" decoding="async">` : "";
 function komorka(m, d) {
   const i = S.plan.findIndex(s => s.m === m && s.dni.includes(d)), p = POS[m];
   if (i < 0) return `<div class="cell free"><span class="mk">${p.n}</span><span class="por">${pula(m).length ? "Wolne miejsce." : "Brak dań w wybranych kategoriach."}</span><button class="ib" data-wybierz="${d}" data-m="${m}">${I.plus}Wybierz</button></div>`;
   const s = S.plan[i], r = BY[s.id], nd = naDzien(r, m);
   if (s.dni[0] !== d) // drugi dzien z tego samego garnka
-    return `<div class="cell rest"><div class="cimg" data-open="${r.id}" style="${tlo(r)}"></div><span class="mk">${p.n}</span>
+    return `<div class="cell rest"><div class="cimg" data-open="${r.id}">${zdjKom(r)}</div><span class="mk">${p.n}</span>
       <div class="cb"><button class="title" data-open="${r.id}">${esc(r.n)}</button>
         <div class="por">Z wczoraj, bez gotowania${r.dwa !== "Tak" ? " · " + esc(r.dwa.replace(/^Tak,?\s*/, "")) : ""}</div>
         <div class="por">Ty <b>${nd.tyK}</b> · ona <b>${nd.onaK}</b> kcal</div></div></div>`;
-  return `<div class="cell${s.lock ? " locked" : ""}"><div class="cimg" data-open="${r.id}" style="${tlo(r)}"></div><span class="mk">${p.n}</span>
+  return `<div class="cell${s.lock ? " locked" : ""}"><div class="cimg" data-open="${r.id}">${zdjKom(r)}</div><span class="mk">${p.n}</span>
     <div class="cb"><button class="title" data-open="${r.id}">${esc(r.n)}</button>
       <div class="por">${czasChip(r)}${s.dni.length === 2 ? " · gotujesz na 2 dni" : ""}</div>
       <div class="por">Ty <b>${nd.tyK}</b> · ona <b>${nd.onaK}</b> kcal · ${porcje(nd.p)}</div>
@@ -1050,21 +1056,79 @@ document.addEventListener("keydown", e => {
   if (e.key === "Enter" && e.target.classList?.contains("card")) otworz(e.target.dataset.id);
 });
 
-/* ---------- start ---------- */
+/* ---------- wspolny stan dla Was dwojga ----------
+   Na claude.ai caly stan (bez historii "Cofnij") lezy w dokumencie db "wspolne/stan". Kazda zmiana
+   idzie tam po krotkiej pauzie, zmiany z drugiego telefonu przychodza na zywo. Przy otwarciu z dysku
+   (bez claude.ai) zostaje sam localStorage. */
+const stanWspolny = () => JSON.stringify(Object.fromEntries(WSPOLNE.map(k => [k, S[k]])));
+function wyslij() {
+  if (!SYNC || SYNC_TYLKO_CZYT || stanWspolny() === SYNC_OSTATNI) return;
+  clearTimeout(SYNC_CZEKA); SYNC_CZEKA = setTimeout(zapiszZdalnie, 700);
+}
+async function zapiszZdalnie(ponow) {
+  if (SYNC_PISZE) { SYNC_CZEKA = setTimeout(zapiszZdalnie, 400); return; }
+  const j = stanWspolny(); if (j === SYNC_OSTATNI) return;
+  SYNC_PISZE = true;
+  try { SYNC_OSTATNI = j; await SYNC.set({ s: j, t: Date.now() }); opisSync(); }
+  catch (e) {
+    SYNC_OSTATNI = null;
+    if (e?.code === "invalid_argument") { SYNC_TYLKO_CZYT = true; opisSync(); toast("Masz podgląd tylko do odczytu. Zmiany zostają na tym telefonie."); }
+    else if (!ponow && (e?.code === "unavailable" || !e?.code)) setTimeout(() => zapiszZdalnie(true), 800 + Math.random() * 1200);
+  } finally { SYNC_PISZE = false; }
+}
 // po aktualizacji danych w planie moze zostac przepis, ktorego juz nie ma albo nie ma skladnikow
-if (S.plan) S.plan = S.plan.filter(s => BY[s.id] && doPlanu(BY[s.id]) && POS[s.m] && S.pos.includes(s.m) && s.dni.every(d => d < S.ndni));
-if (S.plan && !S.plan.length) S.plan = null;
-if (S.plan && S.pos.some(m => wolneDni(S.plan, m).length)) S.plan = dopelnij(S.plan); // dziury po usunietych daniach i nowe posilki
-// plan sprzed tygodnia: dni licza sie od dzis, dania zostaja
-if (dataDnia(S.ndni) <= dzis()) S.start = iso(dzis());
-for (const id of [...ULUB, ...BAN]) if (!BY[id]) { ULUB.delete(id); BAN.delete(id); }
+function napraw() {
+  if (S.plan) S.plan = S.plan.filter(s => BY[s.id] && doPlanu(BY[s.id]) && POS[s.m] && S.pos.includes(s.m) && s.dni.every(d => d < S.ndni));
+  if (S.plan && !S.plan.length) S.plan = null;
+  if (S.plan && S.pos.some(m => wolneDni(S.plan, m).length)) S.plan = dopelnij(S.plan); // dziury po usunietych daniach i nowe posilki
+  // plan sprzed tygodnia: dni licza sie od dzis, dania zostaja
+  if (dataDnia(S.ndni) <= dzis()) S.start = iso(dzis());
+  for (const id of [...ULUB, ...BAN]) if (!BY[id]) { ULUB.delete(id); BAN.delete(id); }
+}
+function przyjmij(j) {
+  let d; try { d = JSON.parse(j); } catch (e) { return; }
+  for (const k of WSPOLNE) if (d[k] !== undefined) S[k] = d[k];
+  ULUB.clear(); (S.ulub || []).forEach(id => ULUB.add(id)); BAN.clear(); (S.ban || []).forEach(id => BAN.add(id));
+  SYNC_OSTATNI = j;
+  napraw();
+  try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { }
+  KARTY.forEach((_, id) => odswiezKarte(id));
+  renderFiltry(); renderPrzepisy(); renderPlan(); renderZakupy();
+  if (!$("#sheet").hidden && D.id && BY[D.id] && $("#sheet-box .d-title")) renderKarta();
+}
+let SYNC_STAN = "";
+function opisSync() {
+  const twoje = R.filter(r => !r.sug).length;
+  $("#brand-sub").textContent = `${R.length} przepisów · ${twoje} Twoich · ${R.length - twoje} moich sugestii` + SYNC_STAN + (SYNC_TYLKO_CZYT ? " · tylko podgląd" : "");
+}
+async function polaczWspolny() {
+  const db = await window.claude?.use?.("db").catch(() => null);
+  if (!db) return;
+  let ref; try { ref = db.doc("wspolne/stan"); } catch (e) { return; }
+  let pierwszy = true;
+  const limit = setTimeout(() => { SYNC_STAN = " · wspólny plan: brak połączenia"; opisSync(); }, 10000);
+  ref.onSnapshot(snap => {
+    if (!snap.metadata.fromCache) { clearTimeout(limit); }
+    SYNC = ref; SYNC_STAN = " · wspólny plan"; opisSync();
+    if (!snap.exists) { if (pierwszy && !snap.metadata.fromCache) { pierwszy = false; wyslij(); } return; }
+    const j = snap.data().s;
+    if (typeof j !== "string" || j === SYNC_OSTATNI || snap.metadata.hasPendingWrites) return;
+    const bylPierwszy = pierwszy; pierwszy = false;
+    przyjmij(j);
+    if (!bylPierwszy) toast("Plan zaktualizowany z drugiego telefonu.");
+  }, () => { clearTimeout(limit); SYNC = null; SYNC_STAN = " · wspólny plan niedostępny"; opisSync(); });
+}
+
+/* ---------- start ---------- */
+napraw();
 zapiszZbiory();
 const twoje = R.filter(r => !r.sug).length;
-$("#brand-sub").textContent = `${R.length} przepisów · ${twoje} Twoich · ${R.length - twoje} moich sugestii`;
+opisSync();
 $("#hero-sub").textContent = `${R.length} przepisów ze zdjęciami. Szukaj po składniku, filtruj albo losuj.`;
 renderFiltry(); renderPrzepisy(); renderPlan(); renderZakupy();
 // duze zdjecie w karcie przepisu pojawia sie na miniaturze, gdy sie zaladuje (load nie babelkuje - lapie w fazie przechwytywania)
 document.addEventListener("load", e => { if (e.target.tagName === "IMG" && e.target.closest(".pic")) e.target.classList.add("ok"); }, true);
 window.addEventListener("load", () => setTimeout(dociagnijDuze, 500));
 pokaz((location.hash || "").slice(1));
+polaczWspolny();
 </script>
