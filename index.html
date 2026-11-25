@@ -935,6 +935,44 @@ function ileKupic(e) {
   if (u.every(x => x === "ml" || x === "l")) return fmt(e.g, "ml") + " ml";
   return (u.length === 1 && u[0] === "g" ? "" : "≈ ") + fmt(e.g, "g") + " g";
 }
+// Swieze bez typowego opakowania w PACK: ile gramow ma sztuka, w czym sie to kupuje.
+const KUPNO = {
+  "cebula": [100, "szt."], "czerwona cebula": [100, "szt."], "szalotka": [30, "szt."], "czosnek": [45, "główka"],
+  "pomidor": [120, "szt."], "marchewka": [80, "szt."], "papryczka chili": [15, "szt."], "jalapeño": [20, "szt."],
+  "jabłko": [180, "szt."], "truskawki": [250, "opak. 250 g"], "borówki": [125, "opak. 125 g"], "kiełki": [100, "opak. 100 g"],
+  "imbir": [50, "kawałek ok. 50 g"], "pesto": [190, "słoik 190 g"], "koncentrat pomidorowy": [200, "słoik 200 g"],
+  "pasta curry": [50, "opak. 50 g"], "oliwki": [150, "słoik 150 g"], "suszone pomidory": [280, "słoik 280 g"],
+  "bulion w proszku": [60, "opak. 60 g"],
+};
+const ODM_KUP = { "doniczka": ["doniczka", "doniczki", "doniczek"], "bochenek": ["bochenek", "bochenki", "bochenków"] };
+function sztukiTxt(n, et) { // "3 szt.", "2 pęczki", "1 główka", a dla opakowan z rozmiarem "2 × kubek 200 g"
+  if (et === "sztuka" || et === "szt.") return n + " szt.";
+  if (ODM[et]) return n + " " + pl(n, ODM[et][0], ODM[et][1], ODM[et][2]);
+  if (ODM_KUP[et]) return n + " " + pl(n, ...ODM_KUP[et]);
+  return n === 1 ? et : n + " × " + et;
+}
+// Lista zakupow mowi, co zdjac z polki: swieze i puszki w sztukach albo opakowaniach, drobnym
+// drukiem ile naprawde potrzeba. Szafka (przyprawy, sypkie, oleje) zostaje w lyzkach i gramach.
+function kupno(e) {
+  const potrzeba = et => {
+    const u = [...e.units];
+    if (u.length === 1 && !WAGA.has(u[0])) return "potrzeba " + ilosc(e.q, u[0]);
+    const plyn = u.every(x => x === "ml" || x === "l") || /\d\s*(ml|l)\b/.test(et || "");
+    return "potrzeba ≈ " + (plyn ? fmt(e.g, "ml") + " ml" : fmt(e.g, "g") + " g");
+  };
+  if (!PANTRY.has(e.sec) && !/^(jajko|żółtko)$/.test(e.n)) {
+    const pk = PACK[e.n] ? [PACK[e.n][0], PACK[e.n][1]] : KUPNO[e.n];
+    if (pk && e.g > 0) {
+      const [g, et] = pk, ile = PACK[e.n] && e.paczki ? e.paczki : Math.max(1, Math.ceil(e.g / g - .08));
+      const glowne = sztukiTxt(ile, et), maly = e.n === "czosnek" ? "potrzeba ≈ " + ilosc(Math.max(1, Math.round(e.g / 5)), "ząbek") : potrzeba(et);
+      return [glowne, maly === "potrzeba " + glowne ? "" : maly];
+    }
+  }
+  const ile = ileKupic(e);
+  // reszta spoza szafki w lyzkach albo garsciach: na wage, z oryginalna miara drobnym drukiem
+  if (!PANTRY.has(e.sec) && /łyż|szklan|garś|ząb|szczypt/.test(ile) && e.g > 0) return ["≈ " + fmt(Math.max(e.g, 5), "g") + " g", "potrzeba " + ile];
+  return [ile, ""];
+}
 function sekcje(tylkoNieodhaczone) {
   const m = potrzeby(S.plan || []); bilans(m);
   const sek = {};
@@ -945,10 +983,10 @@ function renderZakupy() {
   const { sek, kol } = sekcje(false);
   const pozycja = (e, spiz) => {
     const k = e.n, pk = PACK[k], done = !!(spiz ? S.mam : S.kupione)[k];
-    const kup = pk && !/jajek/.test(pk[1]) && !spiz ? `<small>${e.paczki} × ${esc(pk[1])}</small>` : "";
+    const [ile, maly] = kupno(e);
     const do_ = [...e.ids].map(id => skrot(BY[id].n, 26)).join(" · ");
     return `<label class="item${done ? " done" : ""}"><input type="checkbox" data-${spiz ? "mam" : "kup"}="${esc(k)}" ${done ? "checked" : ""}>
-      <span class="what">${esc(k)}<span>${esc(do_)}</span></span><span class="amt">${ileKupic(e)}${kup}</span></label>`;
+      <span class="what">${esc(k)}<span>${esc(do_)}</span></span><span class="amt">${esc(ile)}${maly ? `<small>${esc(maly)}</small>` : ""}</span></label>`;
   };
   const blok = s => {
     const spiz = PANTRY.has(s), zb = spiz ? S.mam : S.kupione;
@@ -970,7 +1008,7 @@ function renderZakupy() {
 function tekstListy() {
   const { sek, kol } = sekcje(true), d0 = dzien(0), dk = dzien(S.ndni - 1);
   return `Zakupy na tydzień ${d0.dt}–${dk.dt}\n\n` + kol.map(s =>
-    (PANTRY.has(s) ? s + " (sprawdź w szafce)" : s).toUpperCase() + "\n" + sek[s].map(e => "- " + e.n + ": " + ileKupic(e) + (PACK[e.n] && !PANTRY.has(s) && !/jajek/.test(PACK[e.n][1]) ? ` (${e.paczki} × ${PACK[e.n][1]})` : "")).join("\n")).join("\n\n");
+    (PANTRY.has(s) ? s + " (sprawdź w szafce)" : s).toUpperCase() + "\n" + sek[s].map(e => { const [ile, maly] = kupno(e); return "- " + e.n + ": " + ile + (maly ? ` (${maly})` : ""); }).join("\n")).join("\n\n");
 }
 
 /* ---------- zdarzenia ---------- */

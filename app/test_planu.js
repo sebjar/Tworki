@@ -12,7 +12,7 @@ global.document = { querySelector: () => el(), querySelectorAll: () => [], creat
 global.window = { scrollTo() {}, addEventListener() {} }; global.Image = function () {}; global.location = { hash: "" }; global.history = { replaceState() {} };
 global.localStorage = { getItem: () => null, setItem() {} }; global.navigator = {};
 const A = new Function(kod + `;return { S, BY, R, F, ULUB, BAN, HIST, POSILKI, lista, nowyPlan, zmienSesje, wstaw, ustawDni, cofnij, przelaczPosilek,
-  pula, potrzeby, bilans, ileKupic, tekstListy, ilosc, porcje, frac, wolneDni, naDzien, przelaczUlub, przelaczBan, film, czasGot, czasTxt, renderPlan };`)();
+  pula, potrzeby, bilans, ileKupic, tekstListy, ilosc, porcje, frac, wolneDni, naDzien, przelaczUlub, przelaczBan, film, czasGot, czasTxt, renderPlan, kupno, PANTRY };`)();
 const { S, BY } = A;
 let bledy = 0;
 const ok = (warunek, co) => { console.log((warunek ? "  OK   " : "  BLAD ") + co); if (!warunek) bledy++; };
@@ -136,6 +136,24 @@ ok(zgodne, "każdy składnik planu (wszystkie posiłki) jest na liście");
 const tekst = A.tekstListy(); ok(tekst.startsWith("Zakupy na tydzień") && tekst.includes("\n- "), "kopiowany tekst listy ma nagłówek i pozycje");
 S.kupione[[...m.values()].find(e => e.sec === "Warzywa i owoce").n] = 1;
 ok(A.tekstListy().split("\n").length < tekst.split("\n").length, "odhaczone znikają z kopiowanej listy");
+
+console.log("Ilości do sklepu");
+const zle = new Set(); let pozycji = 0;
+for (let i = 0; i < 10; i++) { A.nowyPlan(); const mm = A.potrzeby(S.plan); A.bilans(mm);
+  for (const e of mm.values()) { if (A.PANTRY.has(e.sec)) continue; pozycji++; const [ile] = A.kupno(e);
+    if (/łyż|szklan|garś|ząb|szczypt/.test(ile)) zle.add(e.n + ": " + ile); } }
+ok(!zle.size, `świeże i puszki bez łyżek, szklanek, garści i ząbków (${pozycji} pozycji w 10 planach)${zle.size ? " → " + [...zle].join("; ") : ""}`);
+const cyt = { n: "cytryna", sec: "Warzywa i owoce", units: new Set(["łyżka"]), g: 30, q: 2, per: {}, paczki: 1 };
+ok(A.kupno(cyt).join(" | ") === "1 szt. | potrzeba 2 łyżki", "sok z cytryny 2 łyżki → " + A.kupno(cyt).join(" | "));
+const cz = { n: "czosnek", sec: "Warzywa i owoce", units: new Set(["ząbek", "łyżka"]), g: 65, q: 0, per: {} };
+ok(A.kupno(cz).join(" | ") === "2 główki | potrzeba ≈ 13 ząbków", "czosnek 65 g → " + A.kupno(cz).join(" | "));
+const jog = { n: "jogurt grecki", sec: "Nabiał i jaja", units: new Set(["g", "łyżka"]), g: 620, q: 0, per: {}, paczki: 2 };
+ok(A.kupno(jog).join(" | ") === "2 × kubek 400 g | potrzeba ≈ 620 g", "jogurt 620 g → " + A.kupno(jog).join(" | "));
+
+const ml = { n: "mleko", sec: "Nabiał i jaja", units: new Set(["ml", "szklanka"]), g: 695, q: 0, per: {}, paczki: 1 };
+ok(A.kupno(ml).join(" | ") === "karton 1 l | potrzeba ≈ 695 ml", "mleko 695 → " + A.kupno(ml).join(" | "));
+const jab = { n: "jabłko", sec: "Warzywa i owoce", units: new Set(["szt."]), g: 180, q: 1, per: {} };
+ok(A.kupno(jab).join(" | ") === "1 szt. | ", "jabłko 1 szt. bez powtórzenia → " + A.kupno(jab).join(" | "));
 
 console.log("Kalorie dnia");
 const d0 = S.plan.filter(s => s.dni.includes(0)), tyK = d0.reduce((a, s) => a + A.naDzien(BY[s.id], s.m).tyK, 0);
