@@ -12,7 +12,7 @@ global.document = { querySelector: () => el(), querySelectorAll: () => [], creat
 global.window = { scrollTo() {}, addEventListener() {} }; global.Image = function () {}; global.location = { hash: "" }; global.history = { replaceState() {} };
 global.localStorage = { getItem: () => null, setItem() {} }; global.navigator = {};
 const A = new Function(kod + `;return { S, BY, R, F, ULUB, BAN, HIST, POSILKI, lista, nowyPlan, zmienSesje, wstaw, ustawDni, cofnij, przelaczPosilek,
-  pula, potrzeby, bilans, ileKupic, tekstListy, ilosc, porcje, frac, wolneDni, naDzien, przelaczUlub, przelaczBan, film, czasGot, czasTxt, renderPlan, kupno, PANTRY };`)();
+  pula, potrzeby, bilans, ileKupic, tekstListy, ilosc, porcje, frac, wolneDni, naDzien, przelaczUlub, przelaczBan, film, czasGot, czasTxt, renderPlan, kupno, PANTRY, porcjiDzien, doPlanu };`)();
 const { S, BY } = A;
 let bledy = 0;
 const ok = (warunek, co) => { console.log((warunek ? "  OK   " : "  BLAD ") + co); if (!warunek) bledy++; };
@@ -149,6 +149,14 @@ const ml = { n: "mleko", sec: "Nabiał i jaja", units: new Set(["ml", "szklanka"
 ok(A.kupno(ml).join(" | ") === "karton 1 l | potrzeba ≈ 695 ml", "mleko 695 → " + A.kupno(ml).join(" | "));
 const jab = { n: "jabłko", sec: "Warzywa i owoce", units: new Set(["szt."]), g: 180, q: 1, per: {} };
 ok(A.kupno(jab).join(" | ") === "1 szt. | ", "jabłko 1 szt. bez powtórzenia → " + A.kupno(jab).join(" | "));
+
+console.log("Porcje");
+let maxP = 0, ponizej250 = 0;
+for (let i = 0; i < 10; i++) { A.nowyPlan(); for (const s of S.plan) { maxP = Math.max(maxP, A.porcjiDzien(BY[s.id], s.m)); if (BY[s.id].kcal < 250) ponizej250++; } }
+ok(maxP <= 4, `najwyżej 2 porcje na osobę dziennie (max w 10 planach: ${maxP})`);
+let maxG = 0; for (const r of A.R.filter(A.doPlanu)) { const p = A.porcjiDzien(r, "obiad"); if (p > 1) maxG = Math.max(maxG, r.gp / r.p * p); }
+ok(maxG <= 1400, `najwyżej ok. 700 g na osobę na posiłek (max: ${Math.round(maxG)} g na dwoje)`);
+ok(!ponizej250 && !A.doPlanu(BY.P067) && !A.doPlanu(BY.P090), "sajgonki, ceviche i inne poniżej 250 kcal poza planem");
 
 console.log("Kalorie dnia");
 const d0 = S.plan.filter(s => s.dni.includes(0)), tyK = d0.reduce((a, s) => a + A.naDzien(BY[s.id], s.m).tyK, 0);
