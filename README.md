@@ -1,6 +1,6 @@
-# Planer posiłków
+# Tworki
 
-Domowa aplikacja z 167 przepisami (TikTok, Instagram, blogi), planerem całego tygodnia i listą zakupów.
+Tworki to domowa aplikacja z 167 przepisami (TikTok, Instagram, blogi), planerem całego tygodnia i listą zakupów.
 Działa w przeglądarce, bez serwera: otwórz `index.html` (zdjęcia leżą obok, w `zdj/`).
 
 ## Co umie
